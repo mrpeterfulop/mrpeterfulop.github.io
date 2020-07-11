@@ -3,3 +3,7 @@ span {
     color: blue;
 }
 
+li a {
+
+    text-decoration: none;
+}
