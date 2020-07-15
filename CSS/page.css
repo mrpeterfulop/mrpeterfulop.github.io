@@ -1,0 +1,60 @@
+/*
+body {
+
+    background-color: #9fbdd0
+}
+
+.login-div {
+
+    padding: 15px;
+    border: solid 1px;
+    box-shadow: 0 0 2px;
+    display: inline-block;
+    
+
+}
+
+.login-div input {
+
+    display: block;
+    margin-bottom: 7px;
+}
+
+.login-div input[type="email"]{
+    border: solid 1px blue;
+}
+
+.login-div input[class^="blue"]{
+    border: solid 1px red;
+}
+
+.login-div input[class$="red"]{
+    border: solid 1px red;
+}
+
+
+.login-div button:hover {
+
+    background-color: red;
+
+}
+
+.login-div input[name="email"]:focus{
+    background-color: blueviolet;
+
+}
+
+ul li:first-child {
+    color: blue;
+}
+
+ul li:last-child {
+    color: green;
+}
+
+ul li:nth-child(3){
+
+    font-weight: bold;
+}
+
+*/
