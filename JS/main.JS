@@ -96,9 +96,9 @@ function beforeSubmit() {
     }
 
 
-    else  {
+    else {
         document.querySelector("button[id='submit-button']").style.display = "none";
-        document.querySelector("button[id='reload-button']").style.display = "block";
+        document.querySelector("a[id='reload-button']").style.display = "block";
         document.querySelector("div[id='confirm-order']").style.display = "none";
         document.querySelector("div[id='success-order']").style.display = "block";
         document.querySelector("button[id='submit-button']").style.background = "#007bff";
