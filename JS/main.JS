@@ -2,14 +2,15 @@ window.onload = function () {
 
 }
 
-orderStatus = false; //A megfelelőséget vizsgáló változó.
-orderStart = true; //Az első kitöltési státuszt vizsgáló változó.
+let orderStatus = false; //A megfelelőséget vizsgáló változó.
+let orderStart = true; //Az első kitöltési státuszt vizsgáló változó.
+let price = 1000;
 
 function calcAmount() {
     let amountInput = document.querySelector("input[name='amount-input-imp']");
     let amountNumber = parseInt(amountInput.value);
     let priceSpan = document.querySelector("span[class='priceBox']");
-    let price = 1000;
+    
     let amount = amountNumber * price;
 
     if (isNaN(amountNumber) || amountNumber <= 0 || amountNumber > 10) {
@@ -65,9 +66,9 @@ function beforeSubmit() {
     let confirmCheck = document.getElementById("confirm-check").checked;
     let name = document.querySelector("input[name *='name']").value;
     let address = document.querySelector("input[name *='address']").value;
-    //let topping = document.querySelector("input[name *='topping']").value;
+    let email = document.querySelector("input[name *='email']").value;
 
-    if (name != "" && address != "") { //Ha nem üresek a mezők, lépjünk tovább a checkbox ellenőrzésre!
+    if (name != "" && address != "" && email!="") { //Ha nem üresek a mezők, lépjünk tovább a checkbox ellenőrzésre!
         document.querySelector("div[id='confirm-order']").style.display = "block";
         document.querySelector("button[id='submit-button']").style.display = "none";
         orderStart = false;
@@ -77,6 +78,7 @@ function beforeSubmit() {
             calcAmount();
             confirmOrder();
             sucessfullOrder();
+            summaryOrder()
         }
     }
 
@@ -131,3 +133,32 @@ function sucessfullOrder() {
 
 }
 
+function summaryOrder() {
+
+    document.querySelector("div[id='summery-card']").style.display = "block";
+
+    let burgerType = document.querySelector("select[name='set-burger-type']").value;
+    let burgerSousage = document.querySelector("select[name='set-burger-sausage']").value;
+    let burgerTopping = document.querySelector("select[name='set-burger-topping']").value;
+
+    name = document.querySelector("input[name *='name']").value;
+    email = document.querySelector("input[name *='email']").value;
+    address = document.querySelector("input[name *='address']").value;
+    amountInput = document.querySelector("input[name='amount-input-imp']");
+    amountNumber = parseInt(amountInput.value);
+    amount = amountNumber * price;
+
+    
+    document.querySelector("span[id='customer-name']").innerText = name;
+    document.querySelector("span[id='customer-email']").innerText = email;
+    document.querySelector("span[id='customer-address']").innerText = address;
+
+    document.querySelector("span[id='burger-type']").innerText = burgerType;
+    document.querySelector("span[id='burger-sausage']").innerText = burgerSousage;
+    document.querySelector("span[id='burger-topping']").innerText = burgerTopping;
+    document.querySelector("span[id='burger-amount']").innerText = amountNumber + " db";
+    document.querySelector("span[id='burger-price']").innerText = amount;
+
+    
+
+}

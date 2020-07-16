@@ -51,6 +51,7 @@
     <div class="container">
         <div class="row">
             <div class="col"></div>
+
             <div class="col">
                 <br>
                 <h2>Hamburger rendelés</h2>
@@ -63,64 +64,23 @@
                                 onclick="imputboxColorOff()">
                         </div>
 
-
-                        <form>
-                            <div class="form-row">
-                              <div class="col-md-6 mb-3">
-                                <label for="validationDefault01">Vezetéknév</label>
-                                <input type="text" class="form-control" id="validationDefault01" value="Kovács" required>
-                              </div>
-
-                              <div class="col-md-6 mb-3">
-                                <label for="validationDefault02">Keresztnév</label>
-                                <input type="text" class="form-control" id="validationDefault02" value="Ottó" required>
-                              </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="col-md-8 mb-3">
-                                  <label for="inputCity">Város</label>
-                                  <input type="text" class="form-control" id="inputCity" value="" required>
-                                </div>
-  
-                                <div class="col-md-4 mb-3">
-                                  <label for="inputZip">Irányítószám</label>
-                                  <input type="text" class="form-control" id="inputZip" value="" required>
-                                </div>
-                              </div>
-                              <div class="form-row">
-                                <div class="col-md-8 mb-3">
-                                  <label for="inputStreet">Utca</label>
-                                  <input type="text" class="form-control" id="inputStreet" value="" required>
-                                </div>
-  
-                                <div class="col-md-4 mb-3">
-                                  <label for="inputAddress2">Házszám</label>
-                                  <input type="text" class="form-control" id="inputAddress2" value="" required>
-                                </div>
-                              </div>
-
-                        </form>
-
-
+                        <div class="form-group">
+                            <label for="name">Email címed</label>
+                            <input type="email" class="form-control" id="email" name="trim-email-imp" placeholder="Email"
+                                onclick="imputboxColorOff()">
+                        </div>
 
                         <div class="form-group">
-                            <div class="row">
-                                <div class="col">
-                                <label for="address">Címed</label>
-                                <input type="text" class="form-control" id="address" name="trim-address-imp"
-                                    placeholder="Lakhely" onclick="imputboxColorOff()">
-                                <label for="address">Címed</label>
-                                <input type="text" class="form-control" id="address" name="trim-address-imp"
-                                    placeholder="Lakhely" onclick="imputboxColorOff()">
-                                </div>
-                            </div>
+                            <label for="address">Kiszállíátsi cím</label>
+                            <input type="text" class="form-control" id="address" name="trim-address-imp" placeholder="Cím"
+                                onclick="imputboxColorOff()">
                         </div>
 
 
+
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Alap burger</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="set-burger-type">Alap burger</label>
+                            <select class="form-control" id="set-burger-type" name="set-burger-type">
                                 <option>Szimpla</option>
                                 <option>Dupla húsos</option>
                                 <option>Csirkeburger</option>
@@ -129,8 +89,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Szószok</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="set-burger-sausage">Szószok</label>
+                            <select class="form-control" id="set-burger-sausage" name="set-burger-sausage">
                                 <option>-</option>
                                 <option>Baconnaise</option>
                                 <option>Házi bbq szósz</option>
@@ -139,8 +99,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Extra feltétek</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <label for="set-burger-topping">Extra feltétek</label>
+                            <select class="form-control" id="set-burger-topping" name="set-burger-topping">
                                 <option>-</option>
                                 <option>Füstöltsajt</option>
                                 <option>Tükörtojás</option>
@@ -151,98 +111,117 @@
 
 
 
-                        <div class="form-group">
-                            <label for="amount-input">Mennyiség</label>
-                            <input type="number" class="form-control" id="amount-input" value="1"
-                                name="amount-input-imp" onchange="calcAmount()">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Kiegészítő üzeneted</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                          </div>
-
-
-
-
+                    <div class="form-group">
+                        <label for="amount-input">Mennyiség</label>
+                        <input type="number" class="form-control" id="amount-input" value="1" name="amount-input-imp"
+                            onchange="calcAmount()">
                     </div>
 
-                    <style>
-                        #max-min-amount {
-                            display: none;
-                            transition: 0.5s;
-                        }
-
-                        #wrong-data {
-                            display: none;
-                            transition: 0.5s;
-                        }
-
-                        #success-order {
-                            display: none;
-                            transition: 0.5s;
-                        }
-
-                        #confirm-order {
-                            display: none;
-                            transition: 0.5s;
-                        }
-
-                        #reload-button {
-                            display: none;
-                            transition: 0.5s;
-                            text-decoration: none;
-                        }
-
-                        #reload-button {
-                            display: none;
-                            transition: 0.5s;
-                            text-decoration: none;
-                        }
-                    </style>
-
-                    <div class="alert alert-warning" role="alert" id="max-min-amount">
-                        Minimum 1, maximum 10 db rendelhető!
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Kiegészítő üzeneted</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
-
-                    <div class="alert alert-danger" role="alert" id="wrong-data">
-                        Hiányosan kitöltött adatok!
-                    </div>
-
-                    <div class="alert alert-success" role="alert" id="success-order">
-                        <b>Köszönjük!</b><br>Megrendelésed rögzítettük!
-                    </div>
-
-                    <div class="alert alert-primary" role="alert" id="confirm-order">
-                        <h5>Kérlek erősítsd meg rendelésed:</h5>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="confirm-check"
-                                onchange="confirmOrder()">
-                            <label class="form-check-label" for="confirm-check">Elfogadom a <a href="#">vásárlási
-                                    feltételeket, </a>és átveszem a rendelést!</label>
-                        </div>
-                    </div>
+                </div>
 
 
-
-
-                    <h5 class="priceBox">Fizetendő: <span class="priceBox">1000</span> Ft</h5><br>
-
-                    <button id="submit-button" type="button" class="btn btn-primary"
-                        onclick="beforeSubmit()">Tovább!</button>
-
-                    <a class="btn btn-primary" href="/Pages/contact.html" role="button" class="btn btn-primary"
-                        id="reload-button">Vissza!</a>
-
-
-                </form>
-
-
+            <div class="alert alert-warning" role="alert" id="max-min-amount">
+                Minimum 1, maximum 10 db rendelhető!
             </div>
-            <div class="col"></div>
-        </div>
+
+            <div class="alert alert-danger" role="alert" id="wrong-data">
+                Hiányosan kitöltött adatok!
+            </div>
+
+            <div class="alert alert-success" role="alert" id="success-order">
+                <b>Köszönjük!</b><br>Megrendelésed rögzítettük!
+            </div>
+
+            <div class="alert alert-primary" role="alert" id="confirm-order">
+                <h5>Kérlek erősítsd meg rendelésed:</h5>
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="confirm-check" onchange="confirmOrder()">
+                    <label class="form-check-label" for="confirm-check">Elfogadom a <a href="#">vásárlási
+                            feltételeket, </a>és átveszem a rendelést!</label>
+                </div>
+            </div>
+
+            <div class="card" style="width: 100%;" id="summery-card">
+                <img src="/img/burger.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text"><h4>ÖSSZESÍTÉS</h4></p>
+                  <p class="card-text"><h5>Megrendelő adatai:</h5></p>
+                  <ul class="customer-data">
+                      <li><b>Név: </b><br><span id="customer-name">???</span></li>
+                      <li><b>Email-cím: </b><br><span id="customer-email">???</span></li>
+                      <li><b>Kiszállítási cím: </b><br><span id="customer-address">???</span></li>
+                  </ul>
+                  <p class="card-text"><h5>Rendelés részletei:</h5></p>
+                  <ul class="burger-data">
+                      <li><b>Burger: </b><br><span id="burger-type">???</span></li>
+                      <li><b>Szósz: </b><br><span id="burger-sausage">???</span></li>
+                      <li><b>Feltét: </b><br><span id="burger-topping">???</span></li>
+                      <li><b>Mennyiség: </b><br><span id="burger-amount">???</span></li>
+                </ul><br>
+                <h5>Fizetendő: <span id="burger-price">1000</span> Ft</h5>
+                </div>
+              </div>
+
+
+             <br><h5 class="priceBox">Fizetendő: <span class="priceBox">1000</span> Ft</h5><br>
+
+             <button id="submit-button" type="button" class="btn btn-primary" onclick="beforeSubmit()">Tovább!</button>
+
+              <a class="btn btn-primary" href="/Pages/contact.html" role="button" class="btn btn-primary"
+            id="reload-button">Vissza!</a>
+
+
+        </form>
+
+
+    </div>
+    <div class="col"></div>
+    </div>
     </div>
 
 </body>
+
+<style>
+    #max-min-amount {
+        display: none;
+        transition: 0.5s;
+    }
+
+    #wrong-data {
+        display: none;
+        transition: 0.5s;
+    }
+
+    #success-order {
+        display: none;
+        transition: 0.5s;
+    }
+
+    #confirm-order {
+        display: none;
+        transition: 0.5s;
+    }
+
+    #reload-button {
+        display: none;
+        transition: 0.5s;
+        text-decoration: none;
+    }
+
+    #reload-button {
+        display: none;
+        transition: 0.5s;
+        text-decoration: none;
+    }
+
+    #summery-card {
+        display: none;
+
+    }
+</style>
 
 </html>
