@@ -1,28 +1,62 @@
-window.onload = function () {
 
+window.onload = function () {
+    document.querySelector("span[id='burger-price']").innerText = price + shippingCost;
+    document.querySelector("span[id='price-box']").innerText = price + shippingCost;
+    document.querySelector('#shipping-prc').innerHTML = shippingCost + " Ft";
 }
 
 let orderStatus = false; //A megfelelőséget vizsgáló változó.
 let orderStart = true; //Az első kitöltési státuszt vizsgáló változó.
 let price = 1000;
+let shippingCost = 490;
+let shippingLimit = 5000;
+
+
 
 function calcAmount() {
     let amountInput = document.querySelector("input[name='amount-input-imp']");
+    let priceSpan = document.querySelector("span[id='price-box']");
     let amountNumber = parseInt(amountInput.value);
-    let priceSpan = document.querySelector("span[class='priceBox']");
-    
-    let amount = amountNumber * price;
+
 
     if (isNaN(amountNumber) || amountNumber <= 0 || amountNumber > 10) {
-        priceSpan.innerText = price;
+        priceSpan.innerText = price + shippingCost;
         amountInput.value = 1;
         document.querySelector("div[id='max-min-amount']").style.display = "block";
     }
 
     else {
-        priceSpan.innerText = amount;
+        calcShippingCost(amountNumber);
+        priceSpan.innerText = calc;
         document.querySelector("div[id='max-min-amount']").style.display = "none";
     }
+}
+
+
+function calcShippingCost(amountNumber) {
+
+    let amount = amountNumber * price;
+
+    if (amount < shippingLimit) {
+        a = shippingCost + " Ft";
+        shippingPrice(a);
+        document.querySelectorAll('#shipping-price').innerHTML = a;
+        return calc = amountNumber * price + shippingCost;
+        
+    } else {
+        a = "Ingyenes!";
+        shippingPrice(a);
+        document.querySelector('#shipping-price').innerHTML = a;
+        return calc = amountNumber * price;
+    }
+
+}
+
+function shippingPrice(a) {
+    let shippingPrice = document.querySelectorAll("span[id^='shipping-']");
+    shippingPrice.forEach((e) => {
+        e.innerText = a;
+    });
 }
 
 function trimInputText() {
@@ -68,7 +102,7 @@ function beforeSubmit() {
     let address = document.querySelector("input[name *='address']").value;
     let email = document.querySelector("input[name *='email']").value;
 
-    if (name != "" && address != "" && email!="") { //Ha nem üresek a mezők, lépjünk tovább a checkbox ellenőrzésre!
+    if (name != "" && address != "" && email != "") { //Ha nem üresek a mezők, lépjünk tovább a checkbox ellenőrzésre!
         document.querySelector("div[id='confirm-order']").style.display = "block";
         document.querySelector("button[id='submit-button']").style.display = "none";
         orderStart = false;
@@ -78,7 +112,7 @@ function beforeSubmit() {
             calcAmount();
             confirmOrder();
             sucessfullOrder();
-            summaryOrder()
+            summaryOrder();
         }
     }
 
@@ -129,7 +163,7 @@ function sucessfullOrder() {
     document.querySelector("div[id='confirm-order']").style.display = "none";
     document.querySelector("div[id='success-order']").style.display = "block";
     document.querySelector("div[class='form-group-inputs']").style.display = "none";
-    document.querySelector("h5[class='priceBox']").style.display = "none";
+    document.querySelector("div[class='priceBox']").style.display = "none";
 
 }
 
@@ -146,9 +180,10 @@ function summaryOrder() {
     address = document.querySelector("input[name *='address']").value;
     amountInput = document.querySelector("input[name='amount-input-imp']");
     amountNumber = parseInt(amountInput.value);
-    amount = amountNumber * price;
 
-    
+    calcShippingCost(amountNumber);
+
+
     document.querySelector("span[id='customer-name']").innerText = name;
     document.querySelector("span[id='customer-email']").innerText = email;
     document.querySelector("span[id='customer-address']").innerText = address;
@@ -157,8 +192,6 @@ function summaryOrder() {
     document.querySelector("span[id='burger-sausage']").innerText = burgerSousage;
     document.querySelector("span[id='burger-topping']").innerText = burgerTopping;
     document.querySelector("span[id='burger-amount']").innerText = amountNumber + " db";
-    document.querySelector("span[id='burger-price']").innerText = amount;
-
-    
+    document.querySelector("span[id='burger-price']").innerText = calc;
 
 }

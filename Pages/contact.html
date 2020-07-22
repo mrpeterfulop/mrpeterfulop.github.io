@@ -12,12 +12,12 @@
 
 <body>
     <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand" href="/pages/bt.html">
+        <a class="navbar-brand" href="/pages/index.html">
             <img src="/img/burger02.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
             CityBurger</a>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/pages/bt.html"></a>
+            <a class="navbar-brand" href="/pages/index.html"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -25,14 +25,14 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/pages/bt.html">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pages/index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Pages/about.html">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Pages/contact.html">Contact</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/Pages/contact.html">Contact<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/Pages/login.html">LOGIN</a>
@@ -50,8 +50,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col"></div>
-
+            <div class="col-4"></div>
             <div class="col">
                 <br>
                 <h2>Hamburger rendelés</h2>
@@ -59,21 +58,21 @@
                     <div class="form-group-inputs">
 
                         <div class="form-group">
-                            <label for="name">Neved</label>
+                            <label for="name">Név</label>
                             <input type="text" class="form-control" id="name" name="trim-name-imp" placeholder="Név"
                                 onclick="imputboxColorOff()">
                         </div>
 
                         <div class="form-group">
                             <label for="name">Email címed</label>
-                            <input type="email" class="form-control" id="email" name="trim-email-imp" placeholder="Email"
-                                onclick="imputboxColorOff()">
+                            <input type="email" class="form-control" id="email" name="trim-email-imp"
+                                placeholder="Email" onclick="imputboxColorOff()">
                         </div>
 
                         <div class="form-group">
                             <label for="address">Kiszállíátsi cím</label>
-                            <input type="text" class="form-control" id="address" name="trim-address-imp" placeholder="Cím"
-                                onclick="imputboxColorOff()">
+                            <input type="text" class="form-control" id="address" name="trim-address-imp"
+                                placeholder="Cím" onclick="imputboxColorOff()">
                         </div>
 
 
@@ -111,76 +110,89 @@
 
 
 
-                    <div class="form-group">
-                        <label for="amount-input">Mennyiség</label>
-                        <input type="number" class="form-control" id="amount-input" value="1" name="amount-input-imp"
-                            onchange="calcAmount()">
+                        <div class="form-group">
+                            <label for="amount-input">Mennyiség</label>
+                            <input type="number" class="form-control" id="amount-input" value="1"
+                                name="amount-input-imp" onchange="calcAmount()">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Kiegészítő üzeneted</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Kiegészítő üzeneted</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+                    <div class="alert alert-warning" role="alert" id="max-min-amount">
+                        Minimum 1, maximum 10 db rendelhető!
                     </div>
-                </div>
+
+                    <div class="alert alert-danger" role="alert" id="wrong-data">
+                        Hiányosan kitöltött adatok!
+                    </div>
+
+                    <div class="alert alert-success" role="alert" id="success-order">
+                        <b>Köszönjük!</b><br>Megrendelésed rögzítettük!
+                    </div>
+
+                    <div class="alert alert-primary" role="alert" id="confirm-order">
+                        <h5>Kérlek erősítsd meg rendelésed:</h5>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="confirm-check"
+                                onchange="confirmOrder()">
+                            <label class="form-check-label" for="confirm-check">Elfogadom a <a href="#">vásárlási
+                                    feltételeket, </a>és átveszem a rendelést!</label>
+                        </div>
+                    </div>
+
+                    <div class="card" style="width: 100%;" id="summery-card">
+                        <img src="/img/burger.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">
+                            <h4>ÖSSZESÍTÉS</h4>
+                            </p>
+                            <p class="card-text">
+                            <h5>Megrendelő adatai:</h5>
+                            </p>
+                            <ul class="customer-data">
+                                <li><b>Név: </b><br><span id="customer-name">???</span></li>
+                                <li><b>Email-cím: </b><br><span id="customer-email">???</span></li>
+                                <li><b>Kiszállítási cím: </b><br><span id="customer-address">???</span></li>
+                            </ul>
+                            <p class="card-text">
+                            <h5>Rendelés részletei:</h5>
+                            </p>
+                            <ul class="burger-data">
+                                <li><b>Burger: </b><br><span id="burger-type">???</span></li>
+                                <li><b>Szósz: </b><br><span id="burger-sausage">???</span></li>
+                                <li><b>Feltét: </b><br><span id="burger-topping">???</span></li>
+                                <li><b>Mennyiség: </b><br><span id="burger-amount">???</span></li>
+                            </ul><br>
+                            <p>Szállítási költség: <span id="shipping-price">?</span></p>
+                            <h5>Végösszeg: <span id="burger-price"></span> Ft</h5>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="priceBox">
+                        <p>Szállítási költség: <span id="shipping-prc">?</span></p>
+                        <h5>Fizetendő: <span id="price-box"></span> Ft</h5><br>
+                    </div>
+
+                    <button id="submit-button" type="button" class="btn btn-primary"
+                        onclick="beforeSubmit()">Tovább!</button>
+
+                    <a class="btn btn-primary" href="/Pages/contact.html" role="button" class="btn btn-primary"
+                        id="reload-button">Vissza!</a><br>
 
 
-            <div class="alert alert-warning" role="alert" id="max-min-amount">
-                Minimum 1, maximum 10 db rendelhető!
+                </form>
+
+
             </div>
+            <div class="col-4"></div>
+        </div>
 
-            <div class="alert alert-danger" role="alert" id="wrong-data">
-                Hiányosan kitöltött adatok!
-            </div>
-
-            <div class="alert alert-success" role="alert" id="success-order">
-                <b>Köszönjük!</b><br>Megrendelésed rögzítettük!
-            </div>
-
-            <div class="alert alert-primary" role="alert" id="confirm-order">
-                <h5>Kérlek erősítsd meg rendelésed:</h5>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="confirm-check" onchange="confirmOrder()">
-                    <label class="form-check-label" for="confirm-check">Elfogadom a <a href="#">vásárlási
-                            feltételeket, </a>és átveszem a rendelést!</label>
-                </div>
-            </div>
-
-            <div class="card" style="width: 100%;" id="summery-card">
-                <img src="/img/burger.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text"><h4>ÖSSZESÍTÉS</h4></p>
-                  <p class="card-text"><h5>Megrendelő adatai:</h5></p>
-                  <ul class="customer-data">
-                      <li><b>Név: </b><br><span id="customer-name">???</span></li>
-                      <li><b>Email-cím: </b><br><span id="customer-email">???</span></li>
-                      <li><b>Kiszállítási cím: </b><br><span id="customer-address">???</span></li>
-                  </ul>
-                  <p class="card-text"><h5>Rendelés részletei:</h5></p>
-                  <ul class="burger-data">
-                      <li><b>Burger: </b><br><span id="burger-type">???</span></li>
-                      <li><b>Szósz: </b><br><span id="burger-sausage">???</span></li>
-                      <li><b>Feltét: </b><br><span id="burger-topping">???</span></li>
-                      <li><b>Mennyiség: </b><br><span id="burger-amount">???</span></li>
-                </ul><br>
-                <h5>Fizetendő: <span id="burger-price">1000</span> Ft</h5>
-                </div>
-              </div>
-
-
-             <br><h5 class="priceBox">Fizetendő: <span class="priceBox">1000</span> Ft</h5><br>
-
-             <button id="submit-button" type="button" class="btn btn-primary" onclick="beforeSubmit()">Tovább!</button>
-
-              <a class="btn btn-primary" href="/Pages/contact.html" role="button" class="btn btn-primary"
-            id="reload-button">Vissza!</a>
-
-
-        </form>
-
-
-    </div>
-    <div class="col"></div>
-    </div>
     </div>
 
 </body>
@@ -221,6 +233,10 @@
     #summery-card {
         display: none;
 
+    }
+
+    .container{
+        margin-bottom: 50px;
     }
 </style>
 
