@@ -11,8 +11,6 @@ let price = 1000;
 let shippingCost = 490;
 let shippingLimit = 5000;
 
-
-
 function calcAmount() {
     let amountInput = document.querySelector("input[name='amount-input-imp']");
     let priceSpan = document.querySelector("span[id='price-box']");
@@ -23,6 +21,7 @@ function calcAmount() {
         priceSpan.innerText = price + shippingCost;
         amountInput.value = 1;
         document.querySelector("div[id='max-min-amount']").style.display = "block";
+        document.querySelector('#shipping-prc').innerHTML = shippingCost + " Ft";
     }
 
     else {
@@ -31,7 +30,6 @@ function calcAmount() {
         document.querySelector("div[id='max-min-amount']").style.display = "none";
     }
 }
-
 
 function calcShippingCost(amountNumber) {
 
@@ -49,7 +47,6 @@ function calcShippingCost(amountNumber) {
         document.querySelector('#shipping-price').innerHTML = a;
         return calc = amountNumber * price;
     }
-
 }
 
 function shippingPrice(a) {
@@ -67,7 +64,6 @@ function trimInputText() {
     });
 }
 
-
 function checkInputs() {
     let inputBoxes = document.querySelectorAll("input[name $='imp']");
 
@@ -78,7 +74,6 @@ function checkInputs() {
         }
         else {
             document.querySelector("div[id='wrong-data']").style.display = "none";
-
         }
     });
 }
