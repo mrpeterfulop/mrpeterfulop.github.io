@@ -42,7 +42,7 @@ function calcShippingCost(amountNumber) {
         shippingPrice(a);
         document.querySelectorAll('#shipping-price').innerHTML = a;
         return calc = amountNumber * price + shippingCost;
-        
+
     } else {
         a = "Ingyenes!";
         shippingPrice(a);
