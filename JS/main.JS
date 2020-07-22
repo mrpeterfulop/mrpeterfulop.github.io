@@ -227,7 +227,7 @@ function dailyOffer() {
     temperature = randomTemp;
 
     if (temperature <= 0) {
-        actuelltOffer = dailyOffers[0];  
+        actuelltOffer = dailyOffers[0];
     }
     if (15 >= temperature && temperature >= 0) {
         actuelltOffer = dailyOffers[1];
@@ -243,5 +243,29 @@ function dailyOffer() {
     }
 
     document.querySelector("span[id='set-offer-value']").innerText = actuelltOffer;
+
+}
+
+
+
+
+
+
+
+
+function runTest1() {
+    let fruits = ['Alma', 'Körte', 'Cseresznye', 'Dinnye', 'Szilva', 'Meggy', 'Barack', 'Szőlő', 'Banán', 'Ananász', 'Avokádó', 'Kivi', 'Málna', 'Áfonya', 'Szeder']
+
+   
+
+    for (let i = 0; i < fruits.length; i++) {
+      
+        if ( fruits[i].charAt(0) == "B"){
+            console.log(fruits[i]);
+        }
+        
+    }
+
+ 
 
 }
