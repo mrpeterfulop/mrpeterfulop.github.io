@@ -2,7 +2,9 @@
 window.onload = function () {
     selectTemperature();
     selectToday();
+   // selectCar(); 
     dailyOffer();
+
 }
 
 let orderStatus = false; //A megfelelőséget vizsgáló változó.
@@ -67,7 +69,7 @@ function trimInputText() {
 function checkInputs() {
     let inputBoxes = document.querySelectorAll("input[name $='imp']");
 
-    inputBoxes.forEach((e) => {
+   inputBoxes.forEach((e) => {
         if (e.value == "") {
             e.style.background = "#ff4d4d";
             orderStatus = false;
@@ -191,7 +193,7 @@ function summaryOrder() {
 
 }
 
-
+/*
 let weatherIcons = ['fas fa-sun', 'fas fa-cloud-sun', 'fas fa-cloud-showers-heavy', 'far fa-snowflake'];
 let temperature = [12, 18.5, 22, 26, 28, 30, 17.5, 21, 24, 22, 15, 26, 5, 8, -15, -5 - 2, 0];
 let dailyOffers = ['forrócsoki', 'meleg tea', 'házi sütemény', 'kézműves fagylalt', 'Jéghideg limonádé']
@@ -226,46 +228,63 @@ function dailyOffer() {
 
     temperature = randomTemp;
 
-    if (temperature <= 0) {
-        actuelltOffer = dailyOffers[0];
-    }
-    if (15 >= temperature && temperature >= 0) {
-        actuelltOffer = dailyOffers[1];
-    }
-    if (20 >= temperature && temperature >= 15) {
-        actuelltOffer = dailyOffers[2];
-    }
-    if (25 >= temperature && temperature >= 20) {
-        actuelltOffer = dailyOffers[3];
-    }
-    if (temperature >= 25) {
-        actuelltOffer = dailyOffers[4];
-    }
+    if (temperature <= 0) { actuelltOffer = dailyOffers[0]; }
+    if (15 >= temperature && temperature >= 0) { actuelltOffer = dailyOffers[1]; }
+    if (20 >= temperature && temperature >= 15) { actuelltOffer = dailyOffers[2]; }
+    if (25 >= temperature && temperature >= 20) { actuelltOffer = dailyOffers[3]; }
+    if (temperature >= 25) { actuelltOffer = dailyOffers[4]; }
 
     document.querySelector("span[id='set-offer-value']").innerText = actuelltOffer;
 
+}*/
+
+/*
+function testAdd(){
+
+    let helpText = document.createElement("small");
+    helpText.className = "form-text text-muted";
+    helpText.innerHTML = "Adja meg a feltéteket!";
+    
+    let parent = document.querySelector("div.form-group:nth-child(2)");
+    parent.appendChild(helpText);
 }
 
+function testRemove(){
 
+    helpText = document.createElement("small");
+    helpText.className = "form-text text-muted";
+    helpText.innerHTML = "Adja meg a feltéteket!";
+    
+    parent = document.querySelector("div.form-group:nth-child(2)");
+    parent.remove(helpText);
 
-
-
-
-
-
-function runTest1() {
-    let fruits = ['Alma', 'Körte', 'Cseresznye', 'Dinnye', 'Szilva', 'Meggy', 'Barack', 'Szőlő', 'Banán', 'Ananász', 'Avokádó', 'Kivi', 'Málna', 'Áfonya', 'Szeder']
-
-   
-
-    for (let i = 0; i < fruits.length; i++) {
-      
-        if ( fruits[i].charAt(0) == "B"){
-            console.log(fruits[i]);
-        }
-        
+}*/
+/*
+function test3() {
+    let sendButton = document.querySelector("form .btn.btn-primary");
+        sendButton.onclick = function () {
+        alert("Hello JS!");
     }
+    
+}*/
+/*
+function test4() {
+    let sendButton = document.querySelector("form .btn.btn-primary");
+    sendButton.addEventListener("click", function () { //Végtelen mennyiségű művelet hozzáadható
+        alert("Hello JS!");
+    });
+    
+}*/
 
- 
+window.addEventListener("resize", function () {
 
-}
+    console.log(this.innerHeight, this.innerWidth);
+
+});
+
+/*
+let sendButton = document.querySelector("form .btn.btn-primary");
+sendButton.addEventListener("click", function () { //Végtelen mennyiségű művelet hozzáadható
+    alert("Hello JS!");
+});*/
+

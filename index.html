@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="/JS/main.JS"></script>
+  <script src="/JS/weather.JS"></script>
+  <script src="/JS/algo.JS"></script>
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
+  <script src="/lib/bootstrap-4.5.0-dist/js/bootstrap.js"></script>
   <link rel="stylesheet" href="/CSS/style.css">
   <script src="https://kit.fontawesome.com/f3947ce071.js" crossorigin="anonymous"></script>
 
@@ -18,7 +22,7 @@
     <a class="navbar-brand" href="/index.html">
       <img src="/img/burger02.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
       CityBurger</a>
-      <div id="set-offer-first">Napi tuti:<span class="badge badge-pill badge-secondary" id="set-offer-value">?</span></div>
+      <!--<div id="set-offer-first">Napi tuti:<span class="badge badge-pill badge-secondary" id="set-offer-value">?</span></div>-->
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,7 +41,7 @@
             <a class="nav-link" href="/Pages/about.html">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Pages/contact.html">Contact</a>
+            <a class="nav-link" href="/Pages/contact.html">Rendelés</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/Pages/login.html">LOGIN</a>
@@ -60,9 +64,12 @@
               <option>Szombat</option>
               <option>Vasárnap</option>
             </select>
-          </div>-->
+          </div>
           <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="dailyOffer()">Aktuális
-            ajánlat!</button>
+            ajánlat!</button>-->
+
+            <div id="set-offer-first">Napi tuti:<span class="badge badge-pill badge-secondary" id="set-offer-value">?</span></div>
+
         </form>
       </div>
     </nav>
@@ -71,6 +78,13 @@
 
   <div class="container">
     <h1>HOME</h1>
+    <label for="cars">Choose a car:</label>
+
+<select name="cars" id="cars">
+<!--   <option id=""></option> -->
+</select>
+
+    </form>
     <div class="row row-cols-1 row-cols-md-2">
       <div class="col mb-4">
 
