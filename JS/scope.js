@@ -1,4 +1,4 @@
-function runTest1() {
+/*function runTest1() {
     let fruits = ['Alma', 'Körte', 'Cseresznye', 'Dinnye', 'Szilva', 'Meggy', 'Barack', 'Szőlő', 'Banán', 'Ananász', 'Avokádó', 'Kivi', 'Málna', 'Áfonya', 'Szeder']
 
 
@@ -12,6 +12,7 @@ function runTest1() {
 
 
 }
+*/
 /*
 function massModify(selector, attribute, value) {
     let nodeList = document.querySelectorAll(selector);

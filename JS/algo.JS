@@ -35,7 +35,7 @@ CIKLUS AMÍG van még szám, ADDIG
 CIKLUS VÉGE    
 */
 
-
+/*
 let numericArray = [1, 3, 2, 5, 4, 7, 6, 9];
 let sum = 0;
 
@@ -43,7 +43,7 @@ for (let i = 0; i < numericArray.length; i++) {
     sum += numericArray[i];
 }
 console.log("Összeg: " + sum);
-
+*/
 
 
 /*
@@ -56,7 +56,7 @@ CIKLUS AMÍG van még szám, ADDIG
     FELTÉTEL VÉGE
 CIKLUS VÉGE
 */
-
+/*
 let db = 0;
 
 for (let i = 0; i < numericArray.length; i++) {
@@ -64,7 +64,7 @@ for (let i = 0; i < numericArray.length; i++) {
         db++;
     }
 }
-console.log("Páros számok: " + db)
+console.log("Páros számok: " + db)*/
 
 /*
 Szélsőérték keresés algoritmusa:
@@ -76,7 +76,7 @@ CIKLUS AMÍG van még szám, ADDIG
     FELTÉTEL VÉGE
 CIKLUS VÉGE
 */
-
+/*
 let biggest = numericArray[0];
 for (let i = 0; i < numericArray.length; i++) {
     if (numericArray[i] > biggest);
@@ -92,7 +92,7 @@ for (let i = 0; i > numericArray.length; i++) {
 }
 console.log("A legkisebb érték: " + smallest);
 
-
+*/
 
 /*
 Eldöntés algoritmusa:
@@ -104,7 +104,7 @@ CIKLUS AMÍG van elem ÉS találat = HAMIS, ADDIG
     FELTÉTEL VÉGE
 CIKLUS VÉGE
 */
-
+/*
 let contains = false;
 value = 15;
 for (let i = 0; i < numericArray.length && contains == false; i++) {
@@ -114,7 +114,7 @@ for (let i = 0; i < numericArray.length && contains == false; i++) {
 }
 
 console.log(value + " Szerepel a tömbben? ", contains);
-
+*/
 /*
 function selectCar() {
 
