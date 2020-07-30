@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+
+        <input type="button" value="KÜLDÉS" id="submitButton" onclick="firstFetch()">
+    </form>
+</body>
+
+<style>
+    #submitButton {
+        margin: 20px;
+        width: 200px;
+        height: 100px;
+        font-size: 30px;
+    }
+</style>
+
+<script>
+    function startProgram() {
+        const myPromise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve({ name: "Piri" });
+            }, 2000);
+        });
+        myPromise.then(
+            data => console.log(data),
+            err => console.error(err)
+        );
+    }
+
+
+    function firstFetch() {
+
+        let fetchInit = {
+            method: "GET",
+            headers: new Headers(),
+            mode: "cors",
+            cashe: "default"
+        };
+
+        fetch("http://localhost:3000/users", fetchInit).then(
+            data => data.json(),
+            Err => console.error(err)
+        ).then(
+            users => console.log(users)
+        );
+    }
+
+
+</script>
+
+
+</html>

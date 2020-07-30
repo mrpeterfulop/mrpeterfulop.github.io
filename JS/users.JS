@@ -6,6 +6,24 @@ window.onload = function () {
     dailyOffer();
 
 
+    function firstFetch() {
+
+        let fetchInit = {
+            method: "GET",
+            headers: new Headers(),
+            mode: "cors",
+            cashe: "default"
+        };
+
+        fetch("http://localhost:3000/users", fetchInit).then(
+            data => data.json(),
+            Err => console.error(err)
+        ).then(
+            users => console.log(users)
+        );
+    }
+
+    
     let users = [
 
         { name: "Berger Whitney", email: "bergerwhitney@Sgmail.com", phone: "36201542785" },
@@ -15,7 +33,7 @@ window.onload = function () {
         { name: "Fekete Szilvia", email: "feketeszilvia@Sgmail.com", phone: "36201112734" },
         { name: "Tóth Piroska", email: "tothpiroska@Sgmail.com", phone: "36207772785" },
         { name: "Szabó Magda", email: "szabomagda@Sgmail.com", phone: "36201542436" },
-        { name: "Fülöp Péter", email: "fuloppeter@Sgmail.com", phone: "36201542111" },
+        { name: "Fülöp", email: "fuloppeter@Sgmail.com", phone: "36201542111" },
     ];
 
 
