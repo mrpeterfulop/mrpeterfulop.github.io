@@ -25,10 +25,10 @@
       "id": 7
     },
     {
-      "name": "Próba User",
+      "id": 8,
+      "name": "Próba",
       "email": "probauser@gmail.com",
-      "phone": "46846156",
-      "id": 8
+      "phone": "46846156"
     }
   ]
 }

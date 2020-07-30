@@ -1,4 +1,4 @@
-
+/*
 window.onload = function () {
 
     selectTemperature();
@@ -102,4 +102,4 @@ window.onload = function () {
 
 
 
-}
+}*/
